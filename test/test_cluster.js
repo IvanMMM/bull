@@ -49,7 +49,7 @@ describe.skip('Cluster', () => {
     let worker;
     let _i = 0;
     for (_i; _i < os.cpus().length - 1; _i++) {
-      worker = cluster.fork();
+      worker = cluster.fork(process.env);
       worker.on('message', workerMessageHandlerWrapper);
       workers.push(worker);
       // console.log('Worker spawned: #', worker.id);

@@ -358,7 +358,7 @@ var queue = new Queue("test concurrent queue");
 
 if(cluster.isMaster){
   for (var i = 0; i < numWorkers; i++) {
-    cluster.fork();
+    cluster.fork(process.env);
   }
 
   cluster.on('online', function(worker) {

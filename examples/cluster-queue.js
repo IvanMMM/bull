@@ -8,7 +8,7 @@ var queue = Queue('test concurrent queue', 6379, '127.0.0.1');
 
 if (cluster.isMaster) {
   for (var i = 0; i < numWorkers; i++) {
-    cluster.fork();
+    cluster.fork(process.env);
   }
 
   cluster.on('online', function(worker) {
